@@ -18,7 +18,9 @@ val viewModule = module {
         RelativeDateTimeFormatter(context = get(), clock = get())
     }
     factory { ReplyToParser() }
-    factory<ReplyActionStrategy<LegacyAccountDto, Message>> { LegacyReplyActionStrategy(replyRoParser = get()) }
+    factory<ReplyActionStrategy<LegacyAccountDto, Message>> {
+        LegacyReplyActionStrategy(replyRoParser = get(), interactionPreferences = get())
+    }
     factory { (attachmentResolver: AttachmentResolver?, onPageFinishedListener: OnPageFinishedListener?) ->
         K9WebViewClient(clipboardManager = get(), attachmentResolver, onPageFinishedListener)
     }

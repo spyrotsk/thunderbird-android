@@ -412,6 +412,15 @@
             app:useSimpleSummaryProvider="true"
             />
 
+        <ListPreference
+            android:dialogTitle="@string/general_settings_reply_button_action_title"
+            android:entries="@array/reply_button_action_entries"
+            android:entryValues="@array/reply_button_action_values"
+            android:key="reply_button_action"
+            android:title="@string/general_settings_reply_button_action_title"
+            app:useSimpleSummaryProvider="true"
+            />
+
         <MultiSelectListPreference
             android:dialogTitle="@string/global_settings_confirm_actions_title"
             android:entries="@array/confirm_action_entries"

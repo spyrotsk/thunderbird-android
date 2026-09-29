@@ -97,6 +97,10 @@ class DefaultInteractionSettingsPreferenceManager(
             InteractionSettingKey.ConfirmMarkAllRead.value,
             INTERACTION_SETTINGS_DEFAULT_CONFIRM_MARK_ALL_READ,
         ),
+        messageViewReplyButtonAction = storage.getEnumOrDefault(
+            InteractionSettingKey.MessageViewReplyButtonAction.value,
+            INTERACTION_SETTINGS_DEFAULT_MESSAGE_VIEW_REPLY_BUTTON_ACTION,
+        ),
     )
 
     private fun writeConfig(config: InteractionSettings) {
@@ -132,6 +136,10 @@ class DefaultInteractionSettingsPreferenceManager(
                     config.isConfirmDeleteFromNotification,
                 )
                 storageEditor.putBoolean(InteractionSettingKey.ConfirmMarkAllRead.value, config.isConfirmMarkAllRead)
+                storageEditor.putEnum(
+                    InteractionSettingKey.MessageViewReplyButtonAction.value,
+                    config.messageViewReplyButtonAction,
+                )
                 storageEditor.commit().also { commited ->
                     logger.verbose(TAG) { "writeConfig: storageEditor.commit() resulted in: $commited" }
                 }

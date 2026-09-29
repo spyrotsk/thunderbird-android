@@ -240,6 +240,12 @@
         <item>ReturnToMessageList</item>
     </string-array>
 
+    <string-array name="reply_button_action_values" translatable="false">
+        <item>AskEveryTime</item>
+        <item>ReplyToSender</item>
+        <item>ReplyAll</item>
+    </string-array>
+
     <string-array name="messageview_body_content_type_values" translatable="false">
         <item>TEXT_HTML</item>
         <item>TEXT_PLAIN</item>

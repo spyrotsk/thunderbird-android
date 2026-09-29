@@ -87,6 +87,7 @@ import net.thunderbird.core.featureflag.keys.GeneratedFeatureFlagKey
 import net.thunderbird.core.logging.Logger
 import net.thunderbird.core.preference.GeneralSettingsManager
 import net.thunderbird.core.preference.interaction.InteractionSettings
+import net.thunderbird.core.preference.interaction.ReplyButtonAction
 import net.thunderbird.core.ui.contract.mvi.observe
 import net.thunderbird.core.ui.theme.api.FeatureThemeProvider
 import net.thunderbird.core.ui.theme.api.Theme
@@ -704,7 +705,8 @@ class MessageViewFragment :
         val message = this.message ?: return
 
         val additionalActions = replayAllStrategy.getReplyActions(account, message).additionalActions
-        if (!forceReplyAction && ReplyAction.REPLY_ALL in additionalActions) {
+        val askForReplyAction = interactionSettings.messageViewReplyButtonAction == ReplyButtonAction.AskEveryTime
+        if (!forceReplyAction && askForReplyAction && ReplyAction.REPLY_ALL in additionalActions) {
             messageReaderViewModel.event(Event.OpenMessageReaderBottomSheet())
         } else {
             fragmentListener.onReply(

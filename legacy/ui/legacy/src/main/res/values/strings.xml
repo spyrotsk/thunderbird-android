@@ -305,6 +305,10 @@
     <string name="general_settings_post_mark_as_unread_action_title">After marking a message as unread</string>
     <string name="general_settings_post_mark_as_unread_action_stay">Stay on current message</string>
     <string name="general_settings_post_mark_as_unread_action_return_to_list">Return to message list</string>
+    <string name="general_settings_reply_button_action_title">Reply button</string>
+    <string name="general_settings_reply_button_action_ask">Ask every time</string>
+    <string name="general_settings_reply_button_action_reply_to_sender">Reply to sender</string>
+    <string name="general_settings_reply_button_action_reply_all">Reply all</string>
 
     <string name="global_settings_confirm_actions_title">Confirm actions</string>
     <string name="global_settings_confirm_actions_summary">Show a dialog whenever you perform selected actions</string>

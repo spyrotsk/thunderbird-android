@@ -195,6 +195,12 @@
         <item>@string/general_settings_post_mark_as_unread_action_return_to_list</item>
     </string-array>
 
+    <string-array name="reply_button_action_entries">
+        <item>@string/general_settings_reply_button_action_ask</item>
+        <item>@string/general_settings_reply_button_action_reply_to_sender</item>
+        <item>@string/general_settings_reply_button_action_reply_all</item>
+    </string-array>
+
     <string-array name="messageview_body_content_type_entries">
         <item>@string/global_settings_messageview_body_content_type_text_html</item>
         <item>@string/global_settings_messageview_body_content_type_text_plain</item>

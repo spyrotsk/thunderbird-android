@@ -858,6 +858,10 @@
     <string name="general_settings_post_mark_as_unread_action_stay">Resta nel messaggio</string>
     <string name="general_settings_post_mark_as_unread_action_title">Dopo aver segnato un messaggio come non letto</string>
     <string name="general_settings_post_mark_as_unread_action_return_to_list">Ritorna alla lista messaggi</string>
+    <string name="general_settings_reply_button_action_title">Pulsante Rispondi</string>
+    <string name="general_settings_reply_button_action_ask">Chiedi ogni volta</string>
+    <string name="general_settings_reply_button_action_reply_to_sender">Rispondi al mittente</string>
+    <string name="general_settings_reply_button_action_reply_all">Rispondi a tutti</string>
     <string name="push_notification_state_alarm_permission_missing">Autorizzazione mancante per pianificare gli allarmi</string>
     <string name="push_notification_grant_alarm_permission">Tocca per concedere l\'autorizzazione.</string>
     <string name="dialog_openkeychain_info_text">L\'app OpenKeychain è richiesta per abilitare il supporto alla crittografia end-to-end.</string>
