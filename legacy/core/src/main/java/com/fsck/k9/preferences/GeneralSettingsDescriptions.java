@@ -47,6 +47,7 @@ import net.thunderbird.core.preference.display.visualSettings.DisplayVisualSetti
 import net.thunderbird.core.preference.display.visualSettings.message.list.MessageListDateTimeFormat;
 import net.thunderbird.core.preference.interaction.PostMarkAsUnreadNavigation;
 import net.thunderbird.core.preference.interaction.PostRemoveNavigation;
+import net.thunderbird.core.preference.interaction.ReplyButtonAction;
 import net.thunderbird.core.preference.network.NetworkSettingsKt;
 import net.thunderbird.core.preference.storage.Storage;
 import net.thunderbird.core.preference.display.visualSettings.message.list.UiDensity;
@@ -346,6 +347,9 @@ class GeneralSettingsDescriptions {
         ));
         s.put("messageListDateTimeFormat", Settings.versions(
             new V(110, new EnumSetting<>(MessageListDateTimeFormat.class, MessageListDateTimeFormat.Contextual))
+        ));
+        s.put("messageViewReplyButtonAction", Settings.versions(
+            new V(112, new EnumSetting<>(ReplyButtonAction.class, ReplyButtonAction.AskEveryTime))
         ));
 
         // TODO: Add a way to properly support feature-specific settings.

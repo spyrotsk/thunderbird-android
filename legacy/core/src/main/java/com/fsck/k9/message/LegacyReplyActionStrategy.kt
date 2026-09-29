@@ -3,13 +3,17 @@ package com.fsck.k9.message
 import com.fsck.k9.helper.ReplyToParser
 import com.fsck.k9.mail.Message
 import net.thunderbird.core.android.account.LegacyAccountDto
+import net.thunderbird.core.preference.interaction.InteractionSettingsPreferenceManager
+import net.thunderbird.core.preference.interaction.ReplyButtonAction
 import net.thunderbird.feature.mail.message.reader.api.strategy.ReplyActionStrategy
 
 /**
  * Figures out which reply actions are available to the user.
  */
-class LegacyReplyActionStrategy(private val replyRoParser: ReplyToParser) :
-    ReplyActionStrategy<LegacyAccountDto, Message> {
+class LegacyReplyActionStrategy(
+    private val replyRoParser: ReplyToParser,
+    private val interactionPreferences: InteractionSettingsPreferenceManager,
+) : ReplyActionStrategy<LegacyAccountDto, Message> {
     override fun getReplyActions(
         account: LegacyAccountDto,
         message: Message,
@@ -24,6 +28,8 @@ class LegacyReplyActionStrategy(private val replyRoParser: ReplyToParser) :
             } else {
                 ReplyActions(defaultAction = ReplyAction.REPLY)
             }
+        } else if (interactionPreferences.getConfig().messageViewReplyButtonAction == ReplyButtonAction.ReplyAll) {
+            ReplyActions(defaultAction = ReplyAction.REPLY_ALL, additionalActions = listOf(ReplyAction.REPLY))
         } else {
             ReplyActions(defaultAction = ReplyAction.REPLY, additionalActions = listOf(ReplyAction.REPLY_ALL))
         }

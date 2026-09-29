@@ -18,6 +18,7 @@ import net.thunderbird.core.preference.SubTheme
 import net.thunderbird.core.preference.display.visualSettings.message.list.MessageListDateTimeFormat
 import net.thunderbird.core.preference.display.visualSettings.message.list.UiDensity
 import net.thunderbird.core.preference.interaction.PostMarkAsUnreadNavigation
+import net.thunderbird.core.preference.interaction.ReplyButtonAction
 import net.thunderbird.core.preference.update
 
 @Suppress("LargeClass")
@@ -181,6 +182,7 @@ class GeneralSettingsDataStore(
             "message_list_density" -> messageListSettings.uiDensity.toString()
             "post_remove_navigation" -> interactionSettings.messageViewPostRemoveNavigation
             "post_mark_as_unread_navigation" -> interactionSettings.messageViewPostMarkAsUnreadNavigation.name
+            "reply_button_action" -> interactionSettings.messageViewReplyButtonAction.name
             else -> defValue
         }
     }
@@ -224,6 +226,7 @@ class GeneralSettingsDataStore(
             "message_list_density" -> updateMessageListDensity(value)
             "post_remove_navigation" -> setMessageViewPostRemoveNavigation(value)
             "post_mark_as_unread_navigation" -> setMessageViewPostMarkAsUnreadNavigation(value)
+            "reply_button_action" -> setMessageViewReplyButtonAction(value)
             else -> return
         }
 
@@ -780,6 +783,17 @@ class GeneralSettingsDataStore(
             settings.copy(
                 interaction = settings.interaction.copy(
                     messageViewPostMarkAsUnreadNavigation = PostMarkAsUnreadNavigation.valueOf(value),
+                ),
+            )
+        }
+    }
+
+    private fun setMessageViewReplyButtonAction(value: String) {
+        skipSaveSettings = true
+        generalSettingsManager.update { settings ->
+            settings.copy(
+                interaction = settings.interaction.copy(
+                    messageViewReplyButtonAction = ReplyButtonAction.valueOf(value),
                 ),
             )
         }

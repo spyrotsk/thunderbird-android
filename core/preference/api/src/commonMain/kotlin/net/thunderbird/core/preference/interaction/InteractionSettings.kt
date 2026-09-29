@@ -17,6 +17,7 @@ const val INTERACTION_SETTINGS_DEFAULT_CONFIRM_DELETE_FROM_NOTIFICATION = true
 const val INTERACTION_SETTINGS_DEFAULT_CONFIRM_SPAM = false
 const val INTERACTION_SETTINGS_DEFAULT_CONFIRM_DISCARD_MESSAGE = true
 const val INTERACTION_SETTINGS_DEFAULT_CONFIRM_MARK_ALL_READ = true
+val INTERACTION_SETTINGS_DEFAULT_MESSAGE_VIEW_REPLY_BUTTON_ACTION = ReplyButtonAction.AskEveryTime
 
 data class InteractionSettings(
     val useVolumeKeysForNavigation: Boolean = INTERACTION_SETTINGS_DEFAULT_USE_VOLUME_KEYS_NAVIGATION,
@@ -30,6 +31,7 @@ data class InteractionSettings(
     val isConfirmSpam: Boolean = INTERACTION_SETTINGS_DEFAULT_CONFIRM_SPAM,
     val isConfirmDiscardMessage: Boolean = INTERACTION_SETTINGS_DEFAULT_CONFIRM_DISCARD_MESSAGE,
     val isConfirmMarkAllRead: Boolean = INTERACTION_SETTINGS_DEFAULT_CONFIRM_MARK_ALL_READ,
+    val messageViewReplyButtonAction: ReplyButtonAction = INTERACTION_SETTINGS_DEFAULT_MESSAGE_VIEW_REPLY_BUTTON_ACTION,
 )
 
 /**
@@ -49,4 +51,14 @@ enum class PostRemoveNavigation {
 enum class PostMarkAsUnreadNavigation {
     StayOnCurrentMessage,
     ReturnToMessageList,
+}
+
+/**
+ * The action performed by the reply button in the message view screen when a message has more than one recipient
+ * that could be replied to.
+ */
+enum class ReplyButtonAction {
+    AskEveryTime,
+    ReplyToSender,
+    ReplyAll,
 }
